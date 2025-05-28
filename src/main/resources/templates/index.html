@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도쿄 23구 클릭 지도</title>
+  <!-- Bootstrap CSS -->
+  <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <!-- Bootstrap JS -->
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <!-- CSS -->
+  <link th:href="@{/css/map.css}" rel="stylesheet" />
+  <!-- 네비게이션 스크립트 -->
+  <script th:src="@{/js/navbar.js}"></script>
+  <!-- ✅ 스타일 연결 확인 -->
+</head>
+<style>
+  body {
+    font-family: "Cafe24 Ssurround air OTF Light";
+  }
+</style>
+
+<body>
+<div id="navbar-placeholder"></div>
+
+<main>
+  <!-- 지도 -->
+  <div class="container">
+    <aside>
+      <h1>
+        우측 지도에서
+        <br />
+        원하는 지역을
+        <br />
+        선택해 주세요
+      </h1>
+      <p>일본에서의 새로운 시작, 쉽고 안전하게!</p>
+      <p>원하는 지역과 예산에 맞는 집을<br>
+      지금 바로 찾아보세요.</p>
+      <br>
+      <div class="image-gallery">
+        <a th:href="@{/property/list}"><button class="all-build">전체 매물 보기</button></a>
+      </div>
+    </aside>
+
+    <div class="map-container" id="mapContainer">
+      <img th:src="@{/img/jido.png}" alt="도쿄 23구 지도" class="map-image" id="mapImage" usemap="#image-map">
+      <map name="image-map">
+        <!-- 아다치구 -->
+        <a th:href="@{/property/list(district='足立区')}" class="district-button"
+           style="left: 495px; top: 230px; width: 120px; height: 100px;">아다치구</a>
+
+        <!-- 가쓰시카구 -->
+        <a th:href="@{/property/list(district='葛飾区')}" class="district-button"
+           style="left: 640px; top: 315px; width: 80px; height: 69px;">가쓰시카구</a>
+
+        <!-- 에도가와구 -->
+        <a th:href="@{/property/list(district='江戸川区')}" class="district-button"
+           style="left: 675px; top: 430px; width: 70px; height: 150px;">에도가와구</a>
+
+        <!-- 고토구 -->
+        <a th:href="@{/property/list(district='江東区')}"  class="district-button"
+           style="left: 570px; top: 490px; width: 80px; height: 69px;">고토구</a>
+
+        <!-- 스미다구 -->
+        <a th:href="@{/property/list(district='墨田区')}" class="district-button"
+           style="left: 570px; top: 410px; width: 80px; height: 40px;">스미다구</a>
+
+        <!-- 아라카와구 -->
+        <a th:href="@{/property/list(district='荒川区')}" class="district-button"
+           style="left: 505px; top: 350px; width: 80px; height: 40px;">아라카와구</a>
+
+        <!-- 다이토구 -->
+        <a th:href="@{/property/list(district='台東区')}" class="district-button"
+           style="left: 505px; top: 405px; width: 80px; height: 40px;">다이토구</a>
+
+        <!-- 기타구 -->
+        <a th:href="@{/property/list(district='北区')}" class="district-button"
+           style="left: 405px; top: 280px; width: 80px; height: 80px;">기타구</a>
+
+        <!-- 분쿄구 -->
+        <a th:href="@{/property/list(district='文京区')}" class="district-button"
+           style="left: 430px; top: 400px; width: 80px; height: 40px;">분쿄구</a>
+
+        <!-- 도시마구 -->
+        <a th:href="@{/property/list(district='豊島区')}"class="district-button"
+           style="left: 370px; top: 365px; width: 80px; height: 40px;">도시마구</a>
+
+        <!-- 이타바시구 -->
+        <a th:href="@{/property/list(district='板橋区')}" class="district-button"
+           style="left: 300px; top: 240px; width: 80px; height: 100px;">이타바시구</a>
+
+        <!-- 네리마구 -->
+        <a th:href="@{/property/list(district='練馬区')}" class="district-button"
+           style="left: 150px; top: 290px; width: 150px; height: 100px;">네리마구</a>
+
+        <!-- 스기나미구 -->
+        <a th:href="@{/property/list(district='杉並区')}" class="district-button"
+           style="left: 170px; top: 430px; width: 150px; height: 70px;">스기나미구</a>
+
+        <!-- 나카노구 -->
+        <a th:href="@{/property/list(district='中野区')}"class="district-button"
+           style="left: 300px; top: 410px; width: 60px; height: 70px;">나카노구</a>
+
+        <!-- 신주쿠구 -->
+        <a th:href="@{/property/list(district='新宿区')}" class="district-button"
+           style="left: 360px; top: 430px; width: 100px; height: 50px;">신주쿠구</a>
+
+        <!-- 지요다구 -->
+        <a th:href="@{/property/list(district='千代田区')}" class="district-button"
+           style="left: 455px; top: 470px; width: 80px; height: 40px;">지요다구</a>
+
+        <!-- 주오구 -->
+        <a th:href="@{/property/list(district='中央区')}" class="district-button"
+           style="left: 505px; top: 490px; width: 50px; height: 69px;">주오구</a>
+
+        <!-- 시부야구 -->
+        <a th:href="@{/property/list(district='渋谷区')}" class="district-button"
+           style="left: 320px; top: 510px; width: 100px; height: 50px;">시부야구</a>
+
+        <!-- 세타가야구 -->
+        <a th:href="@{/property/list(district='世田谷区')}" class="district-button"
+           style="left: 175px; top: 550px; width: 150px; height: 100px;">세타가야구</a>
+
+        <!-- 미나토구 -->
+        <a th:href="@{/property/list(district='港区')}" class="district-button"
+           style="left: 415px; top: 530px; width: 100px; height: 80px;">미나토구</a>
+
+        <!-- 메구로구 -->
+        <a th:href="@{/property/list(district='目黒区')}"class="district-button"
+           style="left: 340px; top: 590px; width: 70px; height: 80px;">메구로구</a>
+
+        <!-- 시나가와구 -->
+        <a th:href="@{/property/list(district='品川区')}" class="district-button"
+           style="left: 380px; top: 630px; width: 100px; height: 80px;">시나가와구</a>
+
+        <!-- 오타구 -->
+        <a th:href="@{/property/list(district='大田区')}" class="district-button"
+           style="left: 340px; top: 720px; width: 180px; height: 120px;">오타구</a>
+      </map>
+    </div>
+  </div>
+
+  <!-- 노선별 -->
+  <div class="line-container">
+    <aside class="aside2">
+      <section class="lineAll">
+        <div class="h2">
+          <h2>노선별 매물 검색 지원</h2>
+          <p class="sub">간편한 노선 클릭으로 최적의 위치 찾기!</p>
+        </div>
+
+        <div class="jr">
+          <img src="/img/jr.png" alt="jr 로고" class="jr-logo" />
+          <a th:href="@{/property/list(line='야마노테')}" class="line yamanote">야마노테</a>
+          <a th:href="@{/property/list(line='츄오- 소부')}" class="line chuuo">츄오- 소부</a>
+          <a th:href="@{/property/list(line='사이쿄')}" class="line saikyou">사이쿄</a>
+          <a th:href="@{/property/list(line='죠반')}" class="line joban">죠반</a>
+          <a th:href="@{/property/list(line='타카사키')}" class="line takasaki">타카사키</a>
+          <a th:href="@{/property/list(line='요코스카')}" class="line yokosuka">요코스카</a>
+          <a th:href="@{/property/list(line='케이힌토쿠')}" class="line keitoku">케이힌토쿠</a>
+        </div>
+        <div class="tokyometro">
+          <img src="/img/Tokyo_Metro_logo.svg.png" alt="도쿄메트로 로고" class="tokyometro-logo" />
+          <a th:href="@{/property/list(line='한조몬')}" class="line hanzomon">한조몬</a>
+          <a th:href="@{/property/list(line='마루노우치')}" class="line marunouchi">마루노우치</a>
+          <a th:href="@{/property/list(line='히비야')}" class="line hibiya">히비야</a>
+          <a th:href="@{/property/list(line='치요다')}" class="line chiyoda">치요다</a>
+          <a th:href="@{/property/list(line='후쿠토신')}" class="line fukutoshin">후쿠토신</a>
+          <a th:href="@{/property/list(line='긴자')}" class="line ginza">긴자</a>
+          <a th:href="@{/property/list(line='난보쿠')}" class="line namboku">난보쿠</a>
+          <a th:href="@{/property/list(line='유라쿠쵸')}" class="line yurakucho">유라쿠쵸</a>
+          <a th:href="@{/property/list(line='토자이')}" class="line tozai">토자이</a>
+        </div>
+      </section>
+    </aside>
+
+    <div class="picture">
+      <img src="/img/yamanote.jpeg" alt="야마노테사진"/>
+    </div>
+  </div>
+</main>
+
+<!-- 현재 남아있는 매물 확인 -->
+<section class="available-properties">
+  <h2>지금 남아있는 매물 확인</h2>
+  <div class="property-list">
+    <!-- 랜덤 매물이 있을 경우 -->
+    <div th:if="${randomProperties != null && !randomProperties.isEmpty()}" class="random-properties-list">
+      <!-- 각 매물에 대해 반복 -->
+      <div th:each="property : ${randomProperties}" class="property-item">
+        <!-- 이미지 처리: 이미지가 있으면 표시, 없으면 대체 텍스트 -->
+        <div th:if="${property.thumbnailImage != null}" class="property-image">
+          <img th:src="${property.thumbnailImage}" th:alt="${property.title + ' 이미지'}">
+        </div>
+        <div th:unless="${property.thumbnailImage != null}" class="no-image-container">
+          <span>이미지 준비중</span>
+        </div>
+
+        <!-- 매물 정보 -->
+        <p th:text="${property.location + (property.station != null ? ' ' + property.station + '역 인근' : '')}">
+          #위치정보
+        </p>
+        <span>
+          <strong th:text="${'월세 ' + #numbers.formatInteger(property.monthlyPrice, 0, 'COMMA') + '円'}">금액</strong>
+          <br>
+          <span th:text="${property.title}">매물 타이틀</span>
+        </span>
+        <!-- 상세 페이지 링크 -->
+        <a th:href="@{/property/{id}(id=${property.propertyId})}" class="property-detail-link">상세보기</a>
+      </div>
+    </div>
+
+    <!-- 매물이 없는 경우 -->
+    <div th:if="${randomProperties == null || randomProperties.isEmpty()}" class="no-properties">
+      <p>현재 표시할 매물이 없습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 부동산 소개 -->
+<section class="real-estate-info">
+  <h2>처음부터 입주까지, 라이온 부동산이 함께합니다.</h2>
+  <div class="info-container">
+    <div class="info-item">
+      <img src="/img/memul.jpeg" alt="찾아오시는 길 이미지">
+      <h3>찾아오시는 길</h3>
+      <p>주소:부산 중구 충장대로 11 2층, 3층</p>
+      <p>데이터사이언스아카데미 302호</p>
+    </div>
+    <div class="info-item">
+      <img src="/img/room3.jpeg" alt="문의 방법 이미지">
+      <h3>문의 방법</h3>
+      <p>전화: 1600-1234</p>
+      <p>카카오톡 오픈채팅: lion1234</p>
+    </div>
+  </div>
+  <!-- 추가 설명이 필요하다면 여기에 배치 -->
+</section>
+
+<!-- navbar.js가 DOM에 푸터를 추가하기 전에 map.js를 먼저 로드 -->
+<script th:src="@{/js/map.js}"></script>
+<!-- navbar.js는 한 번만 로드하여 중복 실행 방지 -->
+<script th:src="@{/js/navbar.js}"></script>
+
+<!-- 푸터 중복 방지를 위한 스크립트 추가 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 페이지 로드 후 푸터가 두 개 이상 있는지 확인
+    setTimeout(function() {
+      const footers = document.querySelectorAll('footer');
+      if (footers.length > 1) {
+        // 첫 번째를 제외한 모든 푸터 제거
+        for (let i = 1; i < footers.length; i++) {
+          footers[i].remove();
+        }
+      }
+    }, 200); // navbar.js의 실행 후 체크하기 위해 약간의 지연 추가
+  });
+</script>
+</body>
+</html>

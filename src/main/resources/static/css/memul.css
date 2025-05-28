@@ -1,0 +1,1113 @@
+/* 기본 스타일 */
+html, body {
+	overflow-x: hidden; /* ✅ 가로 스크롤바 제거 */
+}
+/* 전체 페이지 기본 설정 */
+body {
+	font-family: "Cafe24 Ssurround air OTF Light";
+	margin: 0;
+	padding: 0;
+}
+
+
+/* '//////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Hero 섹션 (배경 이미지 + 오버레이) */
+.hero {
+	position: relative;
+	background: url('../img/memul.jpeg') no-repeat center center/cover; /* ✅ 배경 이미지 적용 */
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: white;
+	overflow: hidden;
+}
+
+/*회색 필터 (반투명 오버레이) */
+.hero::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(34, 34, 34, 0.59); /* ✅ 어두운 회색 필터 (투명도 조절 가능) */
+}
+
+
+/* 텍스트가 위에 표시되도록 설정 */
+.hero h1, .hero p, .cta-btn {
+	position: relative;
+	z-index: 1;
+}
+
+/* 검은색 버튼 스타일 */
+.cta-btn {
+	background-color: black;
+	color: white;
+	padding: 12px 25px;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.cta-btn:hover {
+	background-color: #333;
+}
+
+/* '//////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* 검색 컨테이너 스타일 */
+.search-container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	width: 100%;
+	max-width: 400px;
+}
+
+/* 검색 입력창 스타일 */
+.search-input {
+	flex: 1;
+	padding: 12px 15px;
+	border: 2px solid #6a99cd;
+	border-radius: 25px;
+	font-size: 16px;
+	outline: none;
+	transition: border-color 0.3s ease;
+	font-family: 'Cafe24 Ssurround air OTF Light';
+}
+
+.search-input:focus {
+	border-color: #355c86;
+}
+
+
+/* 검색 결과가 없을 때 메시지 스타일 */
+.no-results {
+	text-align: center;
+	padding: 20px;
+	color: #666;
+	font-style: italic;
+	display: none;
+}
+
+/* 검색 결과 하이라이트 스타일 */
+.highlight {
+	background-color: #fff3cd;
+	padding: 2px;
+	border-radius: 5px;
+}
+
+
+/* ////////////////////////////////////////////////*/
+
+/* 필터 컨테이너 */
+.filter-container {
+	display: flex;
+	gap: 20px;
+	padding: 20px;
+	width: 100%;
+	max-width: 1600px !important;
+	margin: 0 auto;
+}
+
+/* 필터 박스 */
+.filter-box {
+	position: sticky;
+	top: 100px;
+	width: 350px !important;
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	font-family: 'Cafe24 Ssurround air OTF Light';
+	height: auto !important;
+	overflow: visible !important;
+	direction: ltr;
+}
+
+.filter-box * {
+	direction: ltr; /* 내부 요소는 다시 왼쪽에서 오른쪽으로 */
+}
+
+.filter-box h2 {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.filter-box label {
+	display: block;
+	margin: 5px 0;
+}
+
+.filter-btn {
+	background-color: #355c86;
+	color: white;
+	border: none;
+	padding: 10px;
+	width: 100%;
+	margin-top: 10px;
+	cursor: pointer;
+	border-radius: 8px;
+	font-family: 'Cafe24 Ssurround air OTF Light';
+}
+
+.filter-btn:hover {
+	background-color: #2b4f70;
+
+}
+
+
+/* 스크롤바 스타일 (왼쪽 배치) */
+.filter-box::-webkit-scrollbar {
+	width: 8px;
+}
+
+.filter-box::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+
+.filter-box::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 4px;
+}
+
+.filter-box::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+label {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+	font-family: 'Cafe24 Ssurround air OTF Light';
+}
+
+select {
+	width: 250px;
+	padding: 8px;
+	border: 1px solid #355c86;
+	border-radius: 8px;
+	font-size: 16px;
+	font-family: 'Cafe24 Ssurround air OTF Light';
+}
+
+/* 월세 슬라이더 */
+.slider-container {
+	position: relative;
+	width: 250px;
+	margin: 20px auto;
+	padding-top: 0; /* 패딩 제거 */
+	height: 50px; /* 전체 높이 설정 */
+}
+
+.range-bar {
+	position: absolute;
+	top: 16px; /* 바의 위치 조정 */
+	left: 0;
+	right: 0;
+	height: 8px;
+	background: linear-gradient(to right, rgb(0, 58, 230), rgb(90, 216, 216));
+	border-radius: 5px;
+	z-index: 1;
+}
+
+.slider {
+	position: absolute;
+	width: 100%;
+	pointer-events: none;
+	background: none;
+	top: 15px; /* 슬라이더 위치 조정 */
+	height: 20px;
+	z-index: 2;
+}
+
+.slider input {
+	width: 100%;
+	position: absolute;
+	pointer-events: auto;
+	-webkit-appearance: none;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+.slider input::-webkit-slider-runnable-track {
+	height: 8px;
+	background: transparent; /* 트랙 배경 투명 */
+}
+
+.slider input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	background: white;
+	border: 3px solid rgb(90, 90, 152);
+	border-radius: 50%;
+	cursor: pointer;
+	margin-top: -6px;
+	position: relative;
+	pointer-events: all;
+	z-index: 3;
+}
+
+/* 가격 라벨 - 슬라이더 바 위에 직접 위치하고 5px 위로 올림 */
+.price-label {
+	position: absolute;
+	top: -15px; /* 0에서 -5px로 변경하여 5px 위로 이동 */
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgb(0, 87, 231);
+	color: white;
+	padding: 3px 10px;
+	border-radius: 15px;
+	font-size: 13px;
+	white-space: nowrap;
+	text-align: center;
+	z-index: 4; /* 가장 앞에 표시 */
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* 최소, 최대 표시 - 라벨 위로 */
+.min-max-labels {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	font-size: 12px;
+	color: #666;
+}
+
+/* '//////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* 매물 리스트 */
+.property-list {
+	flex: 1;
+	min-width: 0;
+	width: 100%;
+	background: #fff;
+	padding: 0 20px !important;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 140px);
+	height: 100%;
+}
+/* 매물 리스트 내부 h1 스타일 */
+.property-list h1 {
+	margin: 20px 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* 매물 리스트 제목과 정렬 옵션 컨테이너 */
+.property-list h1,
+.sort-options {
+	padding: 0 20px;
+}
+
+.property-item {
+	border: 1px solid #e0e0e0;
+	margin-bottom: 20px;
+	background-color: white;
+	border-radius: 8px;
+}
+
+.property-header {
+	padding: 15px;
+	background-color: #355c86;
+	color: white;
+	border-radius: 8px 8px 0 0;
+}
+
+.property-header .property-no {
+	color: white;
+	margin-right: 10px;
+}
+
+.property-content {
+	display: grid;
+	grid-template-columns: 200px repeat(5, 1fr);
+	padding: 15px;
+	align-items: center;
+	gap: 10px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.property-image {
+	width: 180px;
+	height: 120px;
+	object-fit: cover;
+}
+
+/* 매물이 없을 경우*/
+empty-message{
+	width: 100%;
+	padding: 40px 20px;
+	text-align: center;
+	background-color: #f8f9fa;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	color: #666;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 20px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*min-height: 150px;*/
+	min-height: calc(100vh - 300px);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 정렬 옵션 스타일 */
+.sort-options {
+	text-align: right;
+	/*margin: 20px;*/
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-bottom: 20px;
+	gap: 15px;
+}
+
+/* 정렬 셀렉트 박스 */
+.sort-options select {
+	width: 200px;
+	padding: 8px;
+	border: 1px solid #dee2e6;
+	border-radius: 4px;
+	font-family: "Cafe24 Ssurround air OTF Light";
+}
+
+/* 체크박스 영역 스타일 */
+.checkbox-column {
+	width: 30px;
+}
+
+/* 매물 번호 스타일 */
+.property-no {
+	color: #666;
+	font-size: 0.9em;
+}
+
+/* 상세보기 버튼 스타일 */
+.detail-button {
+	background-color: #6a99cd;
+	color: white;
+	padding: 8px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	white-space: nowrap;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.detail-button:hover {
+	background-color: #3b5998;
+}
+
+/* 예약 상태 스타일 */
+.status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.65rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-badge.available {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-badge.in-progress {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.status-badge.completed {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* 지하철 정보 스타일 */
+.subway-info {
+	color: #666;
+	font-size: 0.9em;
+}
+
+/* 가격 정보 영역 스타일 */
+.price-info {
+	background-color: #f8f9fa;
+	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #e0e0e0;
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 1200px) {
+	.property-content {
+		grid-template-columns: 150px 1fr 120px 120px 100px;
+	}
+	
+	.property-image {
+		width: 140px;
+		height: 100px;
+	}
+}
+
+@media (max-width: 768px) {
+	.property-content {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+	
+	.property-image {
+		width: 100%;
+		height: 200px;
+	}
+	
+	.checkbox-column {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+	
+	.price-info {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+}
+
+/* '//////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* '//////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/* 팝업 스타일 개선 */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 확인 버튼 스타일 */
+.confirm-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #355c86;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Cafe24 Ssurround air OTF Light';
+    font-size: 16px;
+    align-self: center;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-button:hover {
+    background-color: #2b4f70;
+}
+
+/* 선택된 노선/역 표시 스타일 개선 */
+.line.selected {
+    box-shadow: 0 0 0 3px white, 0 0 0 5px currentColor;
+    transform: scale(1.05);
+}
+
+.station.selected {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor;
+    transform: scale(1.05);
+}
+
+/* 스테이션 리스트 섹션 스타일 개선 */
+.line-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.line-section h3 {
+    color: #355c86;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid #355c86;
+    padding-bottom: 5px;
+}
+
+/* 스크롤바 스타일 개선 */
+.popup-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.popup-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+    background: #355c86;
+    border-radius: 4px;
+}
+
+.popup-content::-webkit-scrollbar-thumb:hover {
+    background: #2b4f70;
+}
+
+/* 닫기 버튼 위치 조정 */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #355c86;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #2b4f70;
+}
+
+/* 노선 선택 스타일 */
+.jr, .tokyometro {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.jr-logo, .tokyometro-logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* 노선 버튼 스타일 */
+.line {
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.line:hover {
+    transform: scale(1.1);
+}
+
+/* 노선 색상 */
+.yamanote { background: #9ACD32; }
+.chuuo { background: #FFD700; color: #000; }
+.saikyou { background: #2e8b57; }
+.joban { background: #3CB371; }
+.takasaki { background: #FFA500; color: #000; }
+.yokosuka { background: #0070B9; }
+.keitoku { background: #00BFFF; }
+
+/* 도쿄메트로 노선 */
+.hanzomon { background: #922088; }
+.marunouchi { background: #e60012; }
+.hibiya { background: #c9caca; }
+.chiyoda { background: #009b53; }
+.fukutoshin { background: #c44c04; }
+.ginza { background: #f49c00; color: #000; }
+.tozai { background: #00ade7; }
+.namboku { background: #00ae9a; }
+.yurakucho { background: #ebb600; }
+
+
+/* 역 선택 스타일 */
+.station {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 노선별 색상 */
+.station.yamanote { background-color: #9ACD32; }
+.station.chuuo { background-color: #FFD700; color: #000; }
+.station.saikyou { background-color: #2e8b57; }
+.station.joban { background-color: #3CB371; }
+.station.takasaki { background-color: #FFA500; color: #000; }
+.station.yokosuka { background-color: #0070B9; }
+.station.keitoku { background-color: #00BFFF; }
+.station.hanzomon { background-color: #922088; }
+.station.marunouchi { background-color: #e60012; }
+.station.hibiya { background-color: #c9caca; color: #000; }
+.station.chiyoda { background-color: #009b53; }
+.station.fukutoshin { background-color: #c44c04; }
+.station.ginza { background-color: #f49c00; color: #000; }
+.station.namboku { background-color: #00ae9a; }
+.station.yurakucho { background-color: #ebb600; color: #000; }
+.station.tozai { background-color: #00ade7; }
+.station.default-line { background-color: #007bff; }
+
+/* 호버 효과 */
+.station:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* 선택된 상태 */
+.station.selected {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor;
+}
+
+/* 스테이션 리스트 컨테이너 */
+#stationList {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    display: block !important; /* 반드시 표시되도록 함 */
+}
+
+.station-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* 스테이션 리스트 제목 */
+#stationList h3 {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* 스크롤바 스타일 */
+#stationList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#stationList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#stationList::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#stationList::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 노선 변수 정의 */
+:root {
+    --yamanote-color: #9ACD32;
+    --chuuo-color: #FFD700;
+    --saikyou-color: #2e8b57;
+    --joban-color: #3CB371;
+    --takasaki-color: #FFA500;
+    --yokosuka-color: #0070B9;
+    --keitoku-color: #00BFFF;
+    --hanzomon-color: #922088;
+    --marunouchi-color: #e60012;
+    --hibiya-color: #c9caca;
+    --chiyoda-color: #009b53;
+    --fukutoshin-color: #c44c04;
+    --ginza-color: #f49c00;
+    --namboku-color: #00ae9a;
+    --yurakucho-color: #ebb600;
+    --tozai-color: #00ade7;
+}
+
+/* 매물 정보 테이블 스타일 */
+.property-info-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0;
+}
+
+.property-info-table th,
+.property-info-table td {
+	padding: 15px;
+	text-align: center;
+	border: 1px solid #e0e0e0;
+}
+
+.property-info-table th {
+	background-color: #f8f9fa;
+	font-weight: bold;
+}
+
+/* 주소 정보 스타일 */
+.address-info {
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-top: 1px solid #e0e0e0;
+}
+
+.address-info div {
+	margin: 5px 0;
+}
+
+.no-image-container {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.no-image-container span {
+	color: #999;
+	font-size: 14px;
+}
+
+/*/////////////////////////////////////////////////////////////*/
+/* 카트 버튼과 최신순 정렬 */
+.add-cart-button {
+	background-color: #355c86;
+	color: white;
+	padding: 8px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	white-space: nowrap;
+	display: inline-block;
+	text-decoration: none;
+	font-family: "Cafe24 Ssurround air OTF Light";
+	white-space: nowrap;
+}
+
+.add-cart-button:hover {
+	background-color: #2b4f70;
+
+}
+
+/* 카트에 아무것도 넣지 않았을 경우, 띄워지는 팝업창 */
+.custom-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.popup-content p {
+	margin: 0 0 20px 0;
+	font-size: 16px;
+	color: #333;
+}
+
+.close-popup-btn {
+	margin-top: 15px;
+	padding: 8px 20px;
+	background-color: #355c86;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.2s;
+	font-family: "Cafe24 Ssurround air OTF Light";
+}
+
+.close-popup-btn:hover {
+	background-color: #2b4f70;
+}
+
+/* 건축년도 셀렉트 박스 스타일 */
+#building-year {
+    width: 250px;
+    padding: 8px;
+    border: 1px solid #355c86;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Cafe24 Ssurround air OTF Light';
+    margin-left: 0; /* 왼쪽 마진 제거 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+/* form-control 클래스 재정의 (Bootstrap 스타일 오버라이드) */
+.form-control#building-year {
+    width: 250px; /* 너비 제한 */
+    margin: 0; /* 마진 제거 */
+    display: block; /* 블록 요소로 표시 */
+}
+
+.station-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.station {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;  /* 기본 색상 */
+    color: white !important;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 노선별 색상 */
+.station.takasaki { background-color: #FFA500; }
+.station.yokosuka { background-color: #0070B9; }
+.station.keitoku { background-color: #00BFFF; }
+.station.hanzomon { background-color: #922088; }
+.station.marunouchi { background-color: #e60012; }
+.station.hibiya { background-color: #808080; }
+.station.chiyoda { background-color: #009b53; }
+.station.fukutoshin { background-color: #c44c04; }
+.station.ginza { background-color: #f49c00; }
+.station.namboku { background-color: #00ae9a; }
+.station.yurakucho { background-color: #ebb600; }
+.station.tozai { background-color: #00ade7; }
+.station.keihin-tohoku { background-color: #0070B9; }
+.station.chuuo { background-color: #FFD700; }
+
+.station:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.station.selected {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor;
+}
+
+#stationList {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+}
+
+#stationList h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 선택한 노선의 역 목록 컨테이너 */
+.stations-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* 역 아이템 스타일 */
+.station-item {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #e9ecef;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #dee2e6;
+}
+
+.station-item:hover {
+    background-color: #dee2e6;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 선택된 역 스타일 */
+.station-item.selected-station {
+    background-color: #355c86;
+    color: white;
+    border-color: #355c86;
+}
+
+/* 노선별 헤더 스타일 */
+.line-header {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    border-left: 4px solid #355c86;
+    background-color: #e9ecef;
+}
+
+/* 로딩 메시지 스타일 */
+.loading-stations {
+    padding: 10px;
+    text-align: center;
+    color: #666;
+}
+
+/* 노선 미선택 메시지 스타일 */
+.no-line-selected {
+    padding: 15px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* 매물 리스트 컨테이너 */
+.property-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 0 !important;
+}
+
+/* 페이징 컨테이너 */
+.pagination-container {
+    margin-top: 10px !important;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 매물 관리 테이블 */
+.property-management-table {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* 테이블 컨테이너 */
+.table-container {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* 테이블 하단 여백 조정 */
+.table {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* 테이블 바디 여백 조정 */
+.table tbody {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* 테이블 컨테이너 전체 스타일 */
+.table-responsive {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: auto;
+}
+
+/* 테이블 기본 스타일 */
+.table {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* 테이블 바디 스타일 */
+.table tbody {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 테이블 셀 스타일 */
+.table td, .table th {
+    padding: 8px;
+    vertical-align: middle;
+}
+
+/* 페이지네이션 컨테이너 */
+.pagination-container {
+    margin-top: 10px !important;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 매물 관리 페이지 전체 컨테이너 */
+.property-management-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
